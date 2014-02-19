@@ -14,7 +14,7 @@
   <div class="field">
     <%= f.label :category %><br>
 
-    <%= f.select :category, Category.all.collect {|c| [c.name] }, {include_blank: true} %>
+    <%= f.select :category, Category.all.collect {|c| [c.name, c] }, {prompt: "Select Category"} %>
   </div>
   <div class="field">
     <%= f.label :name %><br>
