@@ -3,5 +3,5 @@ class Event < ActiveRecord::Base
     validates :category, :presence => true
     validates :description, :presence => true #, :description, limit: 300
 
-    has_many :categories
+    belongs_to :category
 end
