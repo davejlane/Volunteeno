@@ -1,31 +1,23 @@
-<h1>List of categories</h1>
+<div class="row">
+  <div class="large-9 columns" role="content">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Active</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+    <h1 class="subtitle">Categories</h1>
 
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= category.description %></td>
-        <td><%= category.active %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <% @categories.each do |category| %>
 
-<br>
+          <article class="list-item">
+            <p class="subtitle"><%= category.name %></p>
+            <p><%= category.description %></p>
+            <p class=""><%= category.active %></p>
+            <%= link_to 'Show', category %>
+            <%= link_to 'Edit', edit_category_path(category) %>
+            <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </article>
+        <% end %>
+      </tbody>
+    </table>
 
-<%= link_to 'New Category', new_category_path %>
+
+    <%= link_to 'New Category', new_category_path, class: 'button radius primary' %>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 <%= form_for(@category) do |f| %>
   <% if @category.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+      <h5 class="subtitle"><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h5>
 
       <ul>
       <% @category.errors.full_messages.each do |msg| %>
@@ -12,22 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :Name %>
-    <%= f.text_field :name %>
+    <%= f.label :Name, class: 'hide' %>
+    <%= f.text_field :name, placeholder: 'name' %>
   </div>
-  <br/>
+
   <div class="field">
-    <%= f.label :Description %>
-    <%= f.text_field :description %>
+    <%= f.label :Description, class: 'hide' %>
+    <%= f.text_field :description, placeholder: 'Description' %>
   </div>
-  <br/>
+
   <div class="field">
     <%= f.check_box :active %>
     <%= f.label :Active %>
   </div>
-  <br/>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Create', :class => 'button radius left primary' %>
+    <%= link_to 'Cancel', categories_path, class: 'button right radius secondary' %>
   </div>
 <% end %>

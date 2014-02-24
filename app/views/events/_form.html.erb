@@ -12,31 +12,32 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :category %><br>
+    <%= f.label :category %>
 
     <%= f.select :category, Category.all.collect {|c| [c.name, c] }, {prompt: "Select Category"} %>
   </div>
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :name, class: 'hide' %>
+    <%= f.text_field :name, placeholder: 'name' %>
   </div>
   <div class="field">
-    <%= f.label :duration %><br>
-    <%= f.number_field :duration %>
+    <%= f.label :duration, class: 'hide' %>
+    <%= f.number_field :duration, placeholder: 'Duration of Event' %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.label :description, class: 'hide' %>
+    <%= f.text_field :description, placeholder: 'Describe your event' %>
   </div>
   <div class="field">
-    <%= f.label :number_volunteer %><br>
-    <%= f.number_field :number_volunteer %>
+    <%= f.label :number_volunteer, class: 'hide' %>
+    <%= f.number_field :number_volunteer, placeholder: '# of volunteers needed' %>
   </div>
   <div class="field">
     <%= f.check_box :active %>
-    <%= f.label :active %><br>
+    <%= f.label :active %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Create', :class => 'button radius left primary' %>
+    <%= link_to 'Cancel', events_path, class: 'button right radius secondary' %>
   </div>
 <% end %>
