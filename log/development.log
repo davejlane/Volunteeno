@@ -1,0 +1,1021 @@
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (23.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCategories (20140309213601)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "active" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140309213601"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateEvents (20140309213628)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" varchar(255), "number_volunteer" integer, "duration" float, "categoryID" integer, "active" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140309213628"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-09 14:36:50 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/mohameds/.rvm/gems/ruby-2.0.0-p0/gems/railties-4.0.2/lib/rails/templates/rails/welcome/index.html.erb (24.6ms)
+Completed 200 OK in 47ms (Views: 32.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-09 14:36:50 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/mohameds/.rvm/gems/ruby-2.0.0-p0/gems/railties-4.0.2/lib/rails/templates/rails/welcome/index.html.erb (0.1ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-09 14:36:54 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/mohameds/.rvm/gems/ruby-2.0.0-p0/gems/railties-4.0.2/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2014-03-09 14:36:55 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 404 Not Found in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find Category with id=1):
+  app/controllers/categories_controller.rb:67:in `set_category'
+
+
+  Rendered /Users/mohameds/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/mohameds/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/mohameds/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/mohameds/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.7ms)
+
+
+Started GET "/categories/" for 127.0.0.1 at 2014-03-09 14:36:57 -0700
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (1.2ms)
+Warning. Error encountered while saving cache cad694162b8d61f15c0b3b77be9c80d9e145c7b4/categories.css.scssc: can't dump anonymous class #<Class:0x007f8dde2d2b98>
+
+Warning. Error encountered while saving cache cad694162b8d61f15c0b3b77be9c80d9e145c7b4/events.css.scssc: can't dump anonymous class #<Class:0x007f8dde2d2b98>
+
+Warning. Error encountered while saving cache cad694162b8d61f15c0b3b77be9c80d9e145c7b4/scaffolds.css.scssc: can't dump anonymous class #<Class:0x007f8dde2d2b98>
+
+Completed 200 OK in 640ms (Views: 639.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2014-03-09 14:36:58 -0700
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2014-03-09 14:36:58 -0700
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2014-03-09 14:36:58 -0700
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2014-03-09 14:36:58 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-09 14:36:58 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-09 14:36:58 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-03-09 14:36:58 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-09 14:36:58 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:36:58 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:36:58 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:36:58 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:36:58 -0700
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2014-03-09 14:36:59 -0700
+Processing by CategoriesController#new as HTML
+  Rendered categories/_form.html.erb (20.2ms)
+  Rendered categories/new.html.erb within layouts/application (26.6ms)
+Completed 200 OK in 42ms (Views: 40.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at 2014-03-09 14:37:16 -0700
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"StVXWGVPivFA5QXvdOebuctO9OrOvX0QPnwVjE6UIlw=", "category"=>{"name"=>"Gardening", "description"=>"park and other stuff", "active"=>"0"}, "commit"=>"Create Category"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (3.5ms)[0m  [1mINSERT INTO "categories" ("active", "created_at", "description", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["active", false], ["created_at", Sun, 09 Mar 2014 21:37:16 UTC +00:00], ["description", "park and other stuff"], ["name", "Gardening"], ["updated_at", Sun, 09 Mar 2014 21:37:16 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Redirected to http://0.0.0.0:3000/categories/1
+Completed 302 Found in 9ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2014-03-09 14:37:16 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered categories/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2014-03-09 14:37:16 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-09 14:37:16 -0700
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2014-03-09 14:37:16 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-03-09 14:37:16 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:37:16 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:37:16 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:37:16 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:37:16 -0700
+
+
+Started GET "/categories/" for 127.0.0.1 at 2014-03-09 14:37:21 -0700
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered categories/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-09 14:37:21 -0700
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2014-03-09 14:37:21 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-03-09 14:37:21 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:37:21 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:37:21 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:37:21 -0700
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2014-03-09 14:37:21 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:37:21 -0700
+
+
+Started GET "/categories/" for 127.0.0.1 at 2014-03-09 14:37:22 -0700
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered categories/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-09 14:37:22 -0700
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2014-03-09 14:37:22 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:37:22 -0700
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2014-03-09 14:37:22 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-03-09 14:37:22 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:37:22 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:37:22 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:37:22 -0700
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2014-03-09 14:37:23 -0700
+Processing by CategoriesController#new as HTML
+  Rendered categories/_form.html.erb (2.8ms)
+  Rendered categories/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at 2014-03-09 14:37:53 -0700
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"StVXWGVPivFA5QXvdOebuctO9OrOvX0QPnwVjE6UIlw=", "category"=>{"name"=>"highway maintenance ", "description"=>"Cleaning highway and adopt road things", "active"=>"0"}, "commit"=>"Create Category"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "categories" ("active", "created_at", "description", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["active", false], ["created_at", Sun, 09 Mar 2014 21:37:53 UTC +00:00], ["description", "Cleaning highway and adopt road things"], ["name", "highway maintenance "], ["updated_at", Sun, 09 Mar 2014 21:37:53 UTC +00:00]]
+  [1m[35m (2.1ms)[0m  commit transaction
+Redirected to http://0.0.0.0:3000/categories/2
+Completed 302 Found in 7ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/categories/2" for 127.0.0.1 at 2014-03-09 14:37:53 -0700
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  Rendered categories/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-09 14:37:53 -0700
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2014-03-09 14:37:53 -0700
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2014-03-09 14:37:53 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:37:53 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-03-09 14:37:53 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:37:53 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:37:53 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:37:53 -0700
+
+
+Started GET "/events/1" for 127.0.0.1 at 2014-03-09 14:37:57 -0700
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 404 Not Found in 3ms
+
+ActiveRecord::RecordNotFound (Couldn't find Event with id=1):
+  app/controllers/events_controller.rb:67:in `set_event'
+
+
+  Rendered /Users/mohameds/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/mohameds/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/mohameds/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /Users/mohameds/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.2ms)
+
+
+Started GET "/event" for 127.0.0.1 at 2014-03-09 14:37:57 -0700
+
+ActionController::RoutingError (No route matches [GET] "/event"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/mohameds/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/mohameds/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/mohameds/.rvm/rubies/ruby-2.0.0-p0/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/mohameds/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/mohameds/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.4ms)
+  Rendered /Users/mohameds/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendered /Users/mohameds/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (19.6ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2014-03-09 14:38:01 -0700
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-09 14:38:02 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-03-09 14:38:02 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:38:02 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:38:02 -0700
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2014-03-09 14:38:02 -0700
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2014-03-09 14:38:02 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:38:02 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:38:02 -0700
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-03-09 14:38:03 -0700
+Processing by EventsController#new as HTML
+  Rendered events/_form.html.erb (10.1ms)
+  Rendered events/new.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-03-09 14:40:35 -0700
+Processing by EventsController#new as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered events/_form.html.erb (19.1ms)
+  Rendered events/new.html.erb within layouts/application (20.6ms)
+Completed 200 OK in 30ms (Views: 24.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-09 14:40:35 -0700
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2014-03-09 14:40:35 -0700
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2014-03-09 14:40:35 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-03-09 14:40:35 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:40:35 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:40:35 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:40:35 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:40:35 -0700
+
+
+Started POST "/events" for 127.0.0.1 at 2014-03-09 14:40:54 -0700
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"StVXWGVPivFA5QXvdOebuctO9OrOvX0QPnwVjE6UIlw=", "event"=>{"name"=>"Test 1", "description"=>"Testing creating a new event", "number_volunteer"=>"100", "duration"=>"0.5", "categoryID"=>"#<Category:0x007f8dde2ab868>", "active"=>"0"}, "commit"=>"Create Event"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mEvent Exists (0.2ms)[0m  SELECT 1 AS one FROM "events" WHERE "events"."name" = 'Test 1' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered events/_form.html.erb (5.4ms)
+  Rendered events/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 42ms (Views: 11.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-09 14:40:54 -0700
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2014-03-09 14:40:54 -0700
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2014-03-09 14:40:54 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:40:54 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-03-09 14:40:54 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:40:54 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:40:54 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:40:54 -0700
+
+
+Started GET "/events" for 127.0.0.1 at 2014-03-09 14:41:14 -0700
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 7ms (Views: 4.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2014-03-09 14:41:14 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:41:14 -0700
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2014-03-09 14:41:14 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:41:14 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-03-09 14:41:14 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-09 14:41:14 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:41:14 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:41:14 -0700
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-03-09 14:41:15 -0700
+Processing by EventsController#new as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered events/_form.html.erb (17.0ms)
+  Rendered events/new.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 24ms (Views: 22.0ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/events" for 127.0.0.1 at 2014-03-09 14:41:31 -0700
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"StVXWGVPivFA5QXvdOebuctO9OrOvX0QPnwVjE6UIlw=", "event"=>{"name"=>"Test 1", "description"=>"Testing creating a new event", "number_volunteer"=>"100", "duration"=>"0.5", "categoryID"=>"#<Category:0x007f8ddac5d518>", "active"=>"0"}, "commit"=>"Create Event"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mEvent Exists (0.2ms)[0m  SELECT 1 AS one FROM "events" WHERE "events"."name" = 'Test 1' LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "events" ("active", "categoryID", "created_at", "description", "duration", "name", "number_volunteer", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["active", false], ["categoryID", 0], ["created_at", Sun, 09 Mar 2014 21:41:31 UTC +00:00], ["description", "Testing creating a new event"], ["duration", 0.5], ["name", "Test 1"], ["number_volunteer", 100], ["updated_at", Sun, 09 Mar 2014 21:41:31 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+Redirected to http://0.0.0.0:3000/events/1
+Completed 302 Found in 8ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2014-03-09 14:41:31 -0700
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered events/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-09 14:41:31 -0700
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2014-03-09 14:41:31 -0700
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-03-09 14:41:31 -0700
+
+
+Started GET "/assets/events.css?body=1" for 127.0.0.1 at 2014-03-09 14:41:31 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:41:31 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:41:31 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:41:31 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:41:31 -0700
+
+
+Started GET "/events/1" for 127.0.0.1 at 2014-03-09 14:50:23 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered events/show.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 125ms (Views: 74.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:50:24 -0700
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-03-09 14:50:24 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:50:24 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:50:24 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:50:24 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-09 14:50:26 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:50:26 -0700
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-03-09 14:50:28 -0700
+Processing by EventsController#new as HTML
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered events/_form.html.erb (31.3ms)
+  Rendered events/new.html.erb within layouts/application (72.3ms)
+Completed 200 OK in 77ms (Views: 76.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:50:28 -0700
+
+
+Started POST "/events" for 127.0.0.1 at 2014-03-09 14:50:49 -0700
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"StVXWGVPivFA5QXvdOebuctO9OrOvX0QPnwVjE6UIlw=", "event"=>{"category"=>"#<Category:0x007fb92d267210>", "name"=>"Test 2", "duration"=>"1", "description"=>"Cleaning highway 101", "number_volunteer"=>"50", "active"=>"0"}, "commit"=>"Create"}
+Completed 500 Internal Server Error in 2ms
+
+ActiveRecord::AssociationTypeMismatch (Category(#70216651426860) expected, got String(#70216629816380)):
+  app/controllers/events_controller.rb:27:in `create'
+
+
+  Rendered /Users/mohameds/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/mohameds/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/mohameds/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/mohameds/.rvm/gems/ruby-2.0.0-p0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.4ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2014-03-09 14:52:13 -0700
+Processing by EventsController#index as HTML
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events"
+  Rendered events/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:52:13 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:52:13 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:52:13 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:52:13 -0700
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-03-09 14:52:15 -0700
+Processing by EventsController#new as HTML
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered events/_form.html.erb (5.1ms)
+  Rendered events/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:52:15 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:52:15 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:52:15 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:52:15 -0700
+
+
+Started POST "/events" for 127.0.0.1 at 2014-03-09 14:52:31 -0700
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"StVXWGVPivFA5QXvdOebuctO9OrOvX0QPnwVjE6UIlw=", "event"=>{"categoryID"=>"#<Category:0x007fb92aab5208>", "name"=>"Test 2", "duration"=>"1", "description"=>"Cleaning highway 101", "number_volunteer"=>"50", "active"=>"0"}, "commit"=>"Create"}
+Unpermitted parameters: categoryID
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mEvent Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "events" WHERE "events"."name" = 'Test 2' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered events/_form.html.erb (5.8ms)
+  Rendered events/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 53ms (Views: 40.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:52:32 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:52:32 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:52:32 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:52:32 -0700
+
+
+Started GET "/events" for 127.0.0.1 at 2014-03-09 14:53:21 -0700
+Processing by EventsController#index as HTML
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events"
+  Rendered events/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:53:21 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:53:21 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:53:21 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:53:21 -0700
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-03-09 14:53:22 -0700
+Processing by EventsController#new as HTML
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered events/_form.html.erb (5.0ms)
+  Rendered events/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:53:22 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:53:22 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:53:22 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:53:22 -0700
+
+
+Started POST "/events" for 127.0.0.1 at 2014-03-09 14:53:37 -0700
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"StVXWGVPivFA5QXvdOebuctO9OrOvX0QPnwVjE6UIlw=", "event"=>{"categoryID"=>"2", "name"=>"Test 2", "duration"=>"1", "description"=>"Cleaning highway 101", "number_volunteer"=>"50", "active"=>"0"}, "commit"=>"Create"}
+Unpermitted parameters: categoryID
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mEvent Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "events" WHERE "events"."name" = 'Test 2' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered events/_form.html.erb (4.6ms)
+  Rendered events/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 12ms (Views: 8.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:53:37 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:53:37 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:53:37 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:53:37 -0700
+
+
+Started POST "/events" for 127.0.0.1 at 2014-03-09 14:54:58 -0700
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"StVXWGVPivFA5QXvdOebuctO9OrOvX0QPnwVjE6UIlw=", "event"=>{"categoryID"=>"2", "name"=>"Test 2", "duration"=>"1", "description"=>"Cleaning highway 101", "number_volunteer"=>"50", "active"=>"0"}, "commit"=>"Create"}
+Unpermitted parameters: categoryID
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mEvent Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "events" WHERE "events"."name" = 'Test 2' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered events/_form.html.erb (3.5ms)
+  Rendered events/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 12ms (Views: 7.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:54:58 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:54:58 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:54:58 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:54:58 -0700
+
+
+Started GET "/events" for 127.0.0.1 at 2014-03-09 14:55:00 -0700
+Processing by EventsController#index as HTML
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events"
+  Rendered events/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:00 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:00 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:00 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:00 -0700
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-03-09 14:55:02 -0700
+Processing by EventsController#new as HTML
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered events/_form.html.erb (3.9ms)
+  Rendered events/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:02 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:02 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:02 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:02 -0700
+
+
+Started GET "/events" for 127.0.0.1 at 2014-03-09 14:55:07 -0700
+Processing by EventsController#index as HTML
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events"
+  Rendered events/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:07 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:07 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:07 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:07 -0700
+
+
+Started GET "/events/1" for 127.0.0.1 at 2014-03-09 14:55:27 -0700
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered events/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:27 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:27 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:27 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:27 -0700
+
+
+Started GET "/events/1" for 127.0.0.1 at 2014-03-09 14:55:46 -0700
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered events/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:46 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:46 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:46 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:46 -0700
+
+
+Started GET "/events" for 127.0.0.1 at 2014-03-09 14:55:53 -0700
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:53 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:53 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:53 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:53 -0700
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-03-09 14:55:55 -0700
+Processing by EventsController#new as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered events/_form.html.erb (4.0ms)
+  Rendered events/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:55 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:55 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:55 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:55:55 -0700
+
+
+Started GET "/events" for 127.0.0.1 at 2014-03-09 14:56:17 -0700
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:56:17 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:56:17 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:56:17 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:56:17 -0700
+
+
+Started GET "/events/1/edit" for 127.0.0.1 at 2014-03-09 14:56:19 -0700
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered events/_form.html.erb (3.8ms)
+  Rendered events/edit.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:56:19 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:56:19 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:56:19 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:56:19 -0700
+
+
+Started GET "/events" for 127.0.0.1 at 2014-03-09 14:56:22 -0700
+Processing by EventsController#index as HTML
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events"
+  Rendered events/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:56:22 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:56:22 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:56:22 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:56:22 -0700
+
+
+Started GET "/events" for 127.0.0.1 at 2014-03-09 14:57:28 -0700
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:57:28 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:57:28 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:57:28 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:57:28 -0700
+
+
+Started GET "/events" for 127.0.0.1 at 2014-03-09 14:58:48 -0700
+Processing by EventsController#index as HTML
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events"
+  Rendered events/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 18ms (Views: 14.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:58:48 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:58:48 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:58:48 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:58:48 -0700
+
+
+Started GET "/events/new" for 127.0.0.1 at 2014-03-09 14:58:50 -0700
+Processing by EventsController#new as HTML
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered events/_form.html.erb (14.3ms)
+  Rendered events/new.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 19ms (Views: 18.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:58:50 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:58:50 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:58:50 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:58:50 -0700
+
+
+Started POST "/events" for 127.0.0.1 at 2014-03-09 14:59:08 -0700
+Processing by EventsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"StVXWGVPivFA5QXvdOebuctO9OrOvX0QPnwVjE6UIlw=", "event"=>{"categoryID"=>"2", "name"=>"Test 2", "duration"=>"1", "description"=>"Cleaning highway 101", "number_volunteer"=>"50", "active"=>"0"}, "commit"=>"Create"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mEvent Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "events" WHERE "events"."name" = 'Test 2' LIMIT 1[0m
+  [1m[35mSQL (5.2ms)[0m  INSERT INTO "events" ("active", "categoryID", "created_at", "description", "duration", "name", "number_volunteer", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["active", false], ["categoryID", 2], ["created_at", Sun, 09 Mar 2014 21:59:08 UTC +00:00], ["description", "Cleaning highway 101"], ["duration", 1.0], ["name", "Test 2"], ["number_volunteer", 50], ["updated_at", Sun, 09 Mar 2014 21:59:08 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/events/2
+Completed 302 Found in 13ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2014-03-09 14:59:08 -0700
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1  [["id", "2"]]
+  Rendered events/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:59:08 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:59:08 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:59:08 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:59:08 -0700
+
+
+Started GET "/events" for 127.0.0.1 at 2014-03-09 14:59:10 -0700
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-09 14:59:10 -0700
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2014-03-09 14:59:10 -0700
+
+
+Started GET "/assets/events.js?body=1" for 127.0.0.1 at 2014-03-09 14:59:10 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-09 14:59:10 -0700
