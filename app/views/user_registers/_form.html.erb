@@ -1,0 +1,39 @@
+<%= form_for(@user_register) do |f| %>
+  <% if @user_register.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_register.errors.count, "error") %> prohibited this user_register from being saved:</h2>
+
+      <ul>
+      <% @user_register.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :eventID %>
+    <%= f.select :eventID, Event.all.collect {|c| [c.name, c.id]},{prompt: "Select an Event"} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name , placeholder: "Enter Name "%>
+  </div>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email, placeholder: "Email for changes" %>
+  </div>
+  <div class="field">
+    <%= f.label :duration_staying %>
+    <%= f.text_field :duration_staying, placeholder: "# of hours staying" %>
+  </div>
+
+  <div class="field">
+    <%= f.check_box :coming %>
+    <%= f.label :coming %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

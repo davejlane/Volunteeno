@@ -1,0 +1,16 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  email: MyString
+  duration_staying: 1.5
+  eventID: 1
+  coming: false
+
+two:
+  name: MyString
+  email: MyString
+  duration_staying: 1.5
+  eventID: 1
+  coming: false

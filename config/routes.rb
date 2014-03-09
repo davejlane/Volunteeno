@@ -1,4 +1,6 @@
 Volunteeno::Application.routes.draw do
+  resources :user_registers
+
   resources :events
 
   root :to => "home#index"

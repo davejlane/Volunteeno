@@ -1,0 +1,33 @@
+<h1>List of people coming </h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Duration staying</th>
+      <th>Eventid</th>
+      <th>Coming</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_registers.each do |user_register| %>
+      <tr>
+        <td><%= user_register.name %></td>
+        <td><%= user_register.duration_staying %></td>
+        <td><%= user_register.eventID %></td>
+        <td><%= user_register.coming %></td>
+        <td><%= link_to 'Show', user_register %></td>
+        <td><%= link_to 'Edit', edit_user_register_path(user_register) %></td>
+        <td><%= link_to 'Destroy', user_register, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User register', new_user_register_path %>
