@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="large-9 columns" role="content">
+
+    <h1 class="subtitle">Categories</h1>
+
+        <% @categories.each do |category| %>
+
+          <article class="list-item">
+            <p class="subtitle"><%= category.name %></p>
+            <p><%= category.description %></p>
+            <p class=""><%= category.active %></p>
+            <%= link_to 'Show', category %>
+            <%= link_to 'Edit', edit_category_path(category) %>
+            <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </article>
+        <% end %>
+      </tbody>
+    </table>
+
+
+    <%= link_to 'New Category', new_category_path, class: 'button radius primary' %>
+  </div>
+</div>
