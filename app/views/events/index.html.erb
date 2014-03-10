@@ -14,7 +14,6 @@
           <th>Active</th>
           <th></th>
           <th></th>
-          <th></th>
         </tr>
       </thead>
 
@@ -27,9 +26,10 @@
             <td><%= event.number_volunteer %></td>
             <td><%= event.categoryID %></td>
             <td><%= event.active %></td>
-            <td><%= link_to 'Show', event %></td>
-            <td><%= link_to 'Edit', edit_event_path(event) %></td>
-            <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% if user_signed_in? && current_user == event.user %>
+              <td><%= link_to 'Edit', edit_event_path(event) %></td>
+              <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
@@ -37,7 +37,7 @@
 
     <br>
 
-    <%= link_to 'New Event', new_event_path, class: 'button radius primary  ' %>
+    <%= link_to 'Sign for an Event', new_user_register_path, class: 'button radius primary  ' %>
   </div>
 
   <aside class="large-3 columns">

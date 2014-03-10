@@ -1,5 +1,8 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
+
+  before_filter :owns_categories, only: [:show, :edit, :update, :destroy]
 
   # GET /categories
   # GET /categories.json
@@ -70,5 +73,11 @@ class CategoriesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
       params.require(:category).permit(:name, :description, :active)
+    end
+
+    def owns_categories
+      if !user_signed_in? current_user != Category.find(params[:id]).user
+        redirect_to root, error: "You are not authorize"
+      end
     end
 end

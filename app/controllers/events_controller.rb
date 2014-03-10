@@ -1,6 +1,9 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
+  before_filter :authenticate_user!, :except => [:index]
+  before_filter :owns_events, :except => [:index]
+
   # GET /events
   # GET /events.json
   def index
@@ -71,4 +74,10 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:categoryID, :name, :duration, :description, :number_volunteer, :active)
     end
+
+    def owns_events
+      if !user_signed_in? current_user != Event.find(params[:id]).user
+        redirect_to root, error: "You are not authorize"
+    end
+  end
 end

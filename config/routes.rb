@@ -1,4 +1,5 @@
 Volunteeno::Application.routes.draw do
+  devise_for :users
   resources :user_registers
 
   resources :events
