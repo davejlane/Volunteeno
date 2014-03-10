@@ -76,7 +76,7 @@ class CategoriesController < ApplicationController
     end
 
     def owns_categories
-      if !user_signed_in? current_user != Category.find(params[:id]).user
+      if !user_signed_in? #current_user != Category.find(params[:id]).user
         redirect_to root, error: "You are not authorize"
       end
     end

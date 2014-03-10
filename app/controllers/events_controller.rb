@@ -76,7 +76,7 @@ class EventsController < ApplicationController
     end
 
     def owns_events
-      if !user_signed_in? current_user != Event.find(params[:id]).user
+      if !user_signed_in? #current_user != Event.find(params[:id]).user
         redirect_to root, error: "You are not authorize"
     end
   end
