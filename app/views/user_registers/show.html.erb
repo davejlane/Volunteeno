@@ -1,29 +1,8 @@
 <p id="notice"><%= notice %></p>
-
+<p> Thanks <%= @user_register.name %>, for Registering, you will recieve an email the day before event<p>
 <p>
-  <strong>Name:</strong>
-  <%= @user_register.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
+  <strong>Your email is :</strong>
   <%= @user_register.email %>
 </p>
 
-<p>
-  <strong>Duration staying:</strong>
-  <%= @user_register.duration_staying %>
-</p>
-
-<p>
-  <strong>Eventid:</strong>
-  <%= @user_register.eventID %>
-</p>
-
-<p>
-  <strong>Coming:</strong>
-  <%= @user_register.coming %>
-</p>
-
-<%= link_to 'Edit', edit_user_register_path(@user_register) %> |
-<%= link_to 'Back', user_registers_path %>
+<%= link_to 'Back to Events', events_path %>
